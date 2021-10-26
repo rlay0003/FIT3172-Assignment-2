@@ -1,0 +1,137 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/rlay0003/FIT3172-Assignment-2/main/melb_data_cleaned.csv"
+    },
+    "vconcat": [
+        {
+            "encoding": {
+                "color": {
+                    "condition": {
+                        "param": "brush",
+                        "title": "Features",
+                        "field": "Type",
+                        "type": "nominal",
+                        "scale": {
+                            "domain": [
+                                "h",
+                                "u",
+                                "t"
+                            ],
+                            "range": [
+                                "#d8eeff",
+                                "#e4d5b7",
+                                "#c7c7c7"
+                            ]
+                        },
+                        "legend": null
+                    },
+                    "value": "#ffffff"
+                },
+                "x": {
+                    "field": "Price",
+                    "title": "Property Price",
+                    "type": "quantitative"
+                },
+                "y": {
+                    "title": "Distance from CBD",
+                    "field": "Distance",
+                    "scale": {
+                        "domain": [
+                            0,
+                            50
+                        ]
+                    },
+                    "type": "quantitative"
+                }
+            },
+            "width": 1200,
+            "height": 400,
+            "mark": "point",
+            "params": [
+                {
+                    "name": "brush",
+                    "select": {
+                        "type": "interval",
+                        "encodings": [
+                            "x"
+                        ]
+                    }
+                }
+            ],
+            "transform": [
+                {
+                    "filter": {
+                        "param": "click"
+                    }
+                }
+            ]
+        },
+        {
+            "encoding": {
+                "color": {
+                    "condition": {
+                        "param": "click",
+                        "field": "Type",
+                        "scale": {
+                            "domain": [
+                                "h",
+                                "u",
+                                "t"
+                            ],
+                            "range": [
+                                "#d8eeff",
+                                "#e4d5b7",
+                                "#c7c7c7"
+                            ]
+                        }
+                    },
+                    "value": "#ffffff"
+                },
+                "x": {
+                    "aggregate": "count"
+                },
+                "y": {
+                    "title": "Type of Housing",
+                    "field": "Type"
+                }
+            },
+            "width": 1200,
+            "height": 95,
+            "mark": "bar",
+            "params": [
+                {
+                    "name": "click",
+                    "select": {
+                        "type": "point",
+                        "encodings": [
+                            "color"
+                        ]
+                    }
+                }
+            ],
+            "transform": [
+                {
+                    "filter": {
+                        "param": "brush"
+                    }
+                }
+            ]
+        }
+    ],
+    "config": {
+        "background": "#3c4c5e",
+        "axis": {
+            "titleColor": "#e2e6e9",
+            "labelColor": "#e2e6e9",
+            "labelFont": "sans-serif",
+            "labelFontSize": 15,
+            "labelAngle": -45,
+            "titleFontSize": 15,
+            "grid": false
+        },
+        "view": {
+            "stroke": "#3c4c5e"
+        }
+    }
+}

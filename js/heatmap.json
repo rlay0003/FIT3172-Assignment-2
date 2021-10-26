@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/melb/melb_data_cleaned.csv"
+    },
+    "title": "Property prices based on the nubmer of houses and the various real estate agents",
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 13
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Rooms",
+            "type": "nominal",
+            "title": "Number of Rooms",
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "y": {
+            "field": "SellerG",
+            "type": "nominal",
+            "title": "Real Estate Company"
+        },
+        "color": {
+            "field": "Price",
+            "aggregate": "mean",
+            "type": "quantitative",
+            "legend": {
+                "title": null
+            }
+        }
+    }
+  }
+  

@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/melb/melb_data_cleaned.csv"
+    },
+    "width": 400,
+    "height": 400,
+    "background":"#3c4c5e",
+
+
+  
+    "mark": {"type": "arc", "innerRadius": 100},
+    "encoding": {
+      "theta": {"aggregate": "count", "type": "quantitative"},
+      "color": {"field": "Day of Week", "type": "ordinal",
+      "scale": {
+          "domain": [
+            "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "range": ["#1E90FF","#9370DB","#DC143C","#FF69B4","#FF8C00","#9ACD32","#CD853F"]
+        },
+        "title": "Day of Week"        
+      },
+
+  "tooltip": [
+  {"field": "Day of Week", "type": "nominal", "title":"Day of Week"},
+  {"field": "count", "type": "quantitative", "format": ","}
+  ]
+    },
+    "config": {}
+  }
