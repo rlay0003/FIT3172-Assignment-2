@@ -45,7 +45,7 @@
                     "type": "quantitative"
                 }
             },
-            "width": 1300,
+            "width": 1500,
             "height": 400,
             "mark": "point",
             "params": [
@@ -96,7 +96,7 @@
                     "field": "Type"
                 }
             },
-            "width": 1300,
+            "width": 1500,
             "height": 95,
             "mark": "bar",
             "params": [
