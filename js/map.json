@@ -1,32 +1,45 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 300,
-    "data": {
-      "url": "data/melb/melb_data_cleaned.csv",
-      "format": {
-        "type": "topojson",
-        "feature": "Suburb"
-      }
-    },
-    "transform": [{
-      "lookup": "id",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Property Prices by Local Government Areas",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rlay0003/FIT3172-Assignment-2/main/data/melb/melb_suburb.json",
+    "format": {
+          "type": "topojson",
+          "feature": "VICLGAgeojson"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.vic_lga__3",
       "from": {
         "data": {
-          "url": "data/unemployment.tsv"
+          "url": "https://raw.githubusercontent.com/rlay0003/FIT3172-Assignment-2/main/data/melb/map.csv"
         },
-        "key": "id",
-        "fields": ["rate"]
+        "key": "LGA",
+        "fields": ["price"]
       }
-    }],
-    "projection": {
-      "type": "albersUsa"
     },
-    "mark": "geoshape",
-    "encoding": {
-      "color": {
-        "field": "rate",
-        "type": "quantitative"
-      }
-    }
+    {"calculate": "datum.price + 0.1", "as": "Price"}
+  ],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
+  "encoding": {
+    "color": {
+      "field": "Price",
+      "type": "quantitative",
+      "scale": {"type": "log",
+            "range": ["#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5"]}
+      
+    },
+    "tooltip": [
+      {"field": "properties.vic_lga__3", "type": "nominal", "title": "Local Government Area"},
+      {"field": "Price", "type": "quantitative"}
+    ]
   }
+
+}
