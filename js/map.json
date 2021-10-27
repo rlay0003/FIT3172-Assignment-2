@@ -32,7 +32,9 @@
       "field": "Price",
       "type": "quantitative",
       "scale": {"type": "log",
-            "range": ["#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5"]}
+            "range": [ "#e4d5b7",
+            "#c7c7c7",
+            "#d8eeff"]}
       
     },
     "tooltip": [
@@ -40,20 +42,20 @@
       {"field": "Price", "type": "quantitative"}
     ]
   },
-"config": {
-        "background": "#3c4c5e",
-        "axis": {
-            "titleColor": "#e2e6e9",
-            "labelColor": "#e2e6e9",
-            "labelFont": "sans-serif",
-            "labelFontSize": 15,
-            "labelAngle": -45,
-            "titleFontSize": 15,
-            "grid": false
-        },
-        "view": {
-            "stroke": "#3c4c5e"
-        }
+  "config": {
+    "background": "#3c4c5e",
+    "axis": {
+        "titleColor": "#e2e6e9",
+        "labelColor": "#e2e6e9",
+        "labelFont": "sans-serif",
+        "labelFontSize": 15,
+        "labelAngle": -45,
+        "titleFontSize": 15,
+        "grid": false
+    },
+    "view": {
+        "stroke": "#3c4c5e"
     }
+}
 
 }
